@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepankan Srivastav Portfolio</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+:root {
+    --main-color: #1c1f32;
+    --body-color: #ffffff;
+    --container-color: #3839467e;
+    --heading-color: #222231;
+    --box-color: #0d0f26;
+    --bg-color: #81828b;
+    --icon-color: #090d3d;
+    --nav-color: #fff;
+}
+
+body {
+    color: var(--bg-color);
+    background: var(--body-color);
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    padding: 3rem 0 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    width: 100%;
+
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.header-active{
+    background:grey;
+    transition:0.4s;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.logo,
+.menu-icon {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.nav-link {
+    font-size: 0.94rem;
+    padding: 4px 8px;
+    border-radius: 0.2rem;
+    color:var(--box-color);
+}
+
+.nav-link:hover {
+    color: var(--nav-color);
+    background: var(--container-color);
+    transition: 0.3s all linear;
+}
+
+/* Menu Icon */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    transition: .3s;
+    color: #0d0f26;
+}
+
+.menu-icon div {
+    display: block;
+    background-color: var(--bg-color);
+    height: 2px;
+    width: 24px;
+    transition: .3s;
+    color: #0d0f26;
+}
+
+.move .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.move .line2 {
+    /* transform: rotate(-45deg) translate(-5px, 5px); */
+    opacity: 0;
+}
+
+.move .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* HOme Section */
+.home {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7rem;
+}
+
+.home-content {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.home-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-text h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--main-color);
+}
+
+.home-text h3::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    left: -15px;
+    width: 20px;
+    height: 2px;
+    background: var(--main-color);
+}
+
+.home-text h3::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    right: -35px;
+    width: 20px;
+    height: 2px;
+    background: var(--main-color);
+}
+
+.home-text h2 {
+    font-size: 3rem;
+    line-height: 4.8rem;
+}
+
+.home-text p {
+    font-size: 0.938rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-text .color {
+    color: var(--main-color);
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.social .bx {
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--icon-color);
+    background: var(--container-color);
+}
+
+.social .bx:hover {
+    background: var(--main-color);
+    transition: .3s all linear;
+    color: #c0bcbc;
+}
+
+/* heading */
+.heading {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.about-data span {
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--main-color);
+}
+
+.about-data h2 {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+.about-text .bx{
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+.btn {
+    font-size: 0.97rem;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    color: var(--bg-color);
+    background: var(--main-color);
+    padding: 12px 16px;
+    border-radius: 0.4rem;
+    margin: 1rem;
+}
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+    content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+ animation: glowing-button-85 20s linear infinite;
+    
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.btn .bx {
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background: #81828b;
+    transition: .3s all linear;
+    color: #0d0f26;
+}
+
+.about-text p {
+    font-size: 0.938rem;
+    /* letter-spacing:   1rem; */
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.about-text .color {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+/* Services */
+.services-box:hover {
+    transform: scale(1.05);
+    transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.services-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(21, 21, 75);
+    border-radius: 0.4rem;
+    transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.services-box .bx {
+    font-size: 1.4rem;
+    color: #c5c1c1;
+    padding: 10px;
+    border-radius: 5rem;
+    border: 2px dashed var(--bg-color);
+}
+
+.services-box h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    color: #fff;
+}
+
+.services-box p {
+    font-size: 0.9rem;
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.portfolio-box {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1)
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: hsla(235, 27%, 18%, 0.7);
+}
+
+.portfolio-overlay h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay .bx {
+    font-size: 24px;
+    padding: 10px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 4px;
+}
+.portfolio-overlay .bx:hover{
+    background: #1c1f32;
+    transition: .3s all linear;
+}
+.portfolio-box:hover .portfolio-overlay{
+    top: 0;
+    transition: 0.3s all ease 0s;
+}
+/* contact */
+.contact-form{
+    max-width: 600px;
+    margin: auto;
+    width: 100%;
+    display: grid;
+    row-gap: 1rem;
+}
+.contact-form input, .contact-form textarea{
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    padding: 15px;
+    color: var(--bg-color);
+    background:rgb(184, 180, 180);
+    border-radius: 0.4rem;
+}
+.contact-form .send-btn{
+    width: 120px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    background: var(--main-color);
+    cursor: pointer;
+}
+.contact-form .send-btn:hover{
+    background: #81828b;
+    transition: .3s all linear;
+    color: #1c1f32;
+}
+/* footer section */
+.footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1.4rem;
+    padding: 30px 0;
+}
+.footer p{
+    font-size: 0.9rem;
+}
+.scroll-top{
+    position: fixed;
+    bottom: -100%;
+    right: 1.5rem;
+}
+.scroll-top .bx{
+    padding: 8px;
+    font-size: 1.3rem;
+    color: var(--bg-color);
+    background: var(--box-color);
+    border-radius: .2rem;
+}
+.scroll-top .bx:hover{
+    background: #81828b;
+    color: #0d0f26;
+    transition: .3s ease;
+}
+.scroll-active{
+    bottom: 2rem;
+    transition: .3s
+}
+/* Making Responsive */
+@media (max-width:990px){
+    .container{
+        margin: 0 auto;
+        width: 90%;
+
+    }
+}
+@media (max-width:892px){
+    section{
+        padding: 2rem 0;
+    }
+    .nav{
+        padding: 12px 0;
+    }
+    .heading{
+        font-size: 4rem;
+    }
+    .portfolio-box{
+        height: 257px;
+    }
+}
+@media (max-width:775px){
+    .nav{
+        padding: 10px 0;
+
+    }
+    .nav-link{
+        color: #ffffff;
+    }
+    .logo,
+    .menu-icon {
+        font-size: 1.1rem;
+        color: #0d0f26;
+    }
+    .home{
+        min-height: 500px;
+        padding-top: 6rem;
+    }
+    .home-text h3{
+        font-size: 1rem;
+    }
+    .home-text h2{
+        font-size: 3rem;
+        line-height:3.8rem;
+    }
+    .home-text p{
+        font-size: .825rem;
+        /* margin-bottom: 1.5rem; */
+    }
+    .services-content{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .portfolio-box{
+        height: 245px;
+    }
+    .menu-icon{
+        display: flex;
+        color: #0d0f26;
+    }
+    .navbar{
+        position: absolute;
+        top:0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--box-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
+        transition:.5s all  cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .open-menu{
+        right: 0;
+        transition:.5s all  cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    }
+    .nav-link{
+        display: block;
+        margin: 1rem 0;
+
+    }
+}
+@media (max-width: 635px){
+    .about-content{
+        grid-template-columns: 1fr;
+    }
+    .about-data span{
+        font-size: .5rem;
+    }
+    .about-data h2{
+        font-size: 1.7rem;
+        line-height: 2.3rem;
+        font-weight: 600;
+        margin: 0.8rem 0;
+    }
+    .about-text p{
+        font-size: 0.825rem;
+        margin-bottom: 1.3rem;
+    }
+}
+@media (max-width:450px){
+    .home{
+        min-height: 450px;
+        padding-top: 5rem;
+    }
+    .home-img{
+        width: 140px;
+        height: 140px;
+    }
+    .home-text h2{
+        font-size: 2.1rem;
+        line-height: 3.2rem;
+    }
+    .home-text p br{
+        display: contents;
+    }
+    .heading{
+        font-size: 3rem;
+    }
+    .about-data h2{
+        font-size: 1.5rem;
+        line-height: 2.1rem;
+        margin: 0.6rem 0;
+    }
+    .services-content,
+    .portfolio-content{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width:325px){
+    .navbar{
+        width: 100%;
+    }
+    .portfolio-box{
+        height: 190px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- scroll top -->
+    <a href="#home" class="scroll-top">
+        <i class='bx bx-up-arrow-alt' ></i>
+    </a>
+    <!-- Header -->
+    <header>
+        <!-- nav -->
+        <div class="nav container">
+            <!-- LOGO -->
+            <a href="#" class="logo">Deepankan</a>
+            <!-- navbar -->
+            <ul class="navbar">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact Me</a></li>
+            </ul>
+            <div class="menu-icon">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+    <section class="home container" id="home">
+        <div class="home-content">
+            <div class="home-img">
+                <img src="img/prof1.jpeg" alt="">
+            </div>
+            <div class="home-text">
+                <h3>Hello</h3>
+                <h2>I'm <span class="color">Deepankan Srivastav</span></h2>
+                <p>
+                    I'm a <span class="color">confident student</span> passionate about learning new skills. <span
+                        class="color">Ambitious</span> and driven individual ready and willing to work
+                    hard and learn from professionals. Brings outstanding computer and communication skills.
+                    <br> Here's a bit more about me.
+                </p>
+                <!-- Social -->
+                <div class="social">
+                    <a href="https://instagram.com/_raj_srivastav__?igshid=MzNlNGNkZWQ4Mg==" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://www.linkedin.com/in/deepankan-srivastav" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+                    <a href="https://github.com/Deepankan1302" target="_blank"><i class='bx bxl-github'></i></a>
+                    <!-- <a href="#"><i class='bx bxl-linkedin-square'></i></a> -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about -->
+    <section class="about container" id="about">
+        <!-- heading -->
+        <h2 class="heading">About</h2>
+        <!-- About  -->
+        <div class="about-content">
+            <div class="about-data">
+                <span>About Me</span>
+                <h2>Front End Developer</h2>
+                <a href="RESUME DEEPANKAN.pdf" download="" class="btn gradient-border">
+                    Download CV
+                    <i class='bx bxs-cloud-download'></i>
+                </a>
+            </div>
+            <div class="about-text">
+                <p>Hello, my name is <span class="color">Deepankan Srivastav</span> , and I’m an engineering student at
+                    <span class="color">SR Group of Institutions.</span> I’m interested in being a Front End Developer.
+                    I’ve enjoyed reading about different types of engineering and how they’re applied to different types
+                    of problems. I think it’s essential to have a wide range of knowledge when working in an engineering
+                    field to be prepared for anything.</p>
+                    <p><i class='bx bx-envelope' ></i> : deepankansrivastav2002@gmail.com</p>
+                    <p><i class='bx bx-current-location' ></i> : lucknow, uttar pradesh, 226010</p>
+            </div>
+        </div>
+    </section>
+    <!-- Services -->
+    <section class="services container" id="services">
+        <!-- Heading -->
+        <h2 class="heading">Services</h2>
+        <!-- Services Content -->
+        <div class="services-content">
+            <div class="services-box">
+                <i class='bx bx-code-alt'></i>
+                <h2>Front End Development</h2>
+                <p>I can create responsive and user friendly websites using HTML, CSS & JavaScript.</p>
+            </div>
+            <div class="services-box">
+                <i class='bx bxl-microsoft'></i>
+                <h2>Microsoft Office Tools</h2>
+                <p>I can easily work with the ms office tools like word, excel and powerpoint </p>
+            </div>
+            <div class="services-box">
+                <i class='bx bx-code-curly'></i>
+                <h2>Programming Languages</h2>
+                <p>I have basic knowledge on some of the popular programming languages like python, java</p>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio -->
+    <section class="portfolio container" id="portfolio">
+        <!-- Heading -->
+        <h2 class="heading">Projects</h2>
+        <!-- portfolio content -->
+        <div class="portfolio-content">
+            <div class="portfolio-box">
+                <img src="img/portfolio-1.webp" alt="" class="portfolio-img">
+                <!-- overlay -->
+                <div class="portfolio-overlay">
+                    <h2>Responsive Website</h2>
+                    <a href="https://github.com/Deepankan1302" target="_blank">
+                        <i class='bx bx-link-alt'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="img/portfolio-3.webp" alt="" class="portfolio-img">
+                <!-- overlay -->
+                <div class="portfolio-overlay">
+                    <h2>Personal Portfolio</h2>
+                    <a href="https://github.com/Deepankan1302" target="_blank">
+                        <i class='bx bx-link-alt'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="img/portfolio-4.webp" alt="" class="portfolio-img">
+                <!-- overlay -->
+                <div class="portfolio-overlay">
+                    <h2>E-Commerce Website</h2>
+                    <a href="https://github.com/Deepankan1302" target="_blank">
+                        <i class='bx bx-link-alt'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="contact container" id="contact">
+        <!-- Heading -->
+        <h2 class="heading">Contact</h2>
+        <!-- Contact Form -->
+        <form action="" class="contact-form" id="contact-form">
+            <input type="text" placeholder="Your Name Please" name="name" class="name" required="">
+            <input type="email" name="" id="" placeholder="Email Address" class="email" required="">
+            <textarea name="" id="" cols="30" rows="10" placeholder="write your message" class="message"
+                required></textarea>
+            <input type="submit" value="Send" class="send-btn">
+
+        </form>
+    </section>
+    <!-- Footer Section  -->
+    <section class="footer container" id="footer">
+        <div class="social">
+            <a href="mailto:deepankansrivastav2002@gmail.com"><i class='bx bx-mail-send' ></i></a>
+            <a href="https://www.linkedin.com/in/deepankan-srivastav" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/Deepankan1302" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+        <!-- copyright -->
+        <p>Deepankan Srivastav</p>
+        
+    </section>
+
+    <!-- Email JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("i4SwyE-16qBKu-G_R");
+        })();
+    </script>
+    <!-- Link to js -->
+    <script>
+        let menu = document.querySelector('.menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = ()=>{
+    navbar.classList.toggle('open-menu');
+    menu.classList.toggle('move');
+};
+window.onscroll = ()=>{
+    navbar.classList.remove('open-menu');
+    menu.classList.remove('move');
+}
+// Email JS
+function validate(){
+    let name = document.querySelector('.name');
+    let email = document.querySelector('.email');
+    let msg = document.querySelector('.message');
+    let sendBtn = document.querySelector('.send-btn');
+
+    sendBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        if(name.value == "" || email.value == "" || msg.value == ""){
+            emptyerror();
+        }
+        else{
+            sendmail(name.value, email.value, msg.value);
+            success();
+        }
+    })
+}
+validate();
+
+function sendmail(name,email,msg){
+    emailjs.send("service_h4jwz9w","template_b6oy27l",{
+        to_name: name,
+        from_name: email,
+        message: msg,
+        });
+}
+
+function emptyerror(){
+    swal({  
+        title: " Oops!",  
+        text: " Feilds can not be empty",  
+        icon: "error",    
+      });  
+}
+function success(){
+    swal({  
+        title: " Email Sent..||",  
+        text: " I will try to reply in 24 hours",  
+        icon: "Success",    
+      });  
+}
+// header b change on scroll
+let header = document.querySelector('header')
+
+window.addEventListener('scroll', ()=>{
+    header.classList.toggle('header-active', window.scrollY > 0)
+})
+// scroll top
+let scrollTop = document.querySelector('.scroll-top')
+
+window.addEventListener('scroll', ()=>{
+    scrollTop.classList.toggle('scroll-active', window.scrollY > 0)
+})
+    </script>
+</body>
+
+</html>
